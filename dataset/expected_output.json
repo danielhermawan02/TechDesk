@@ -1,0 +1,96 @@
+{
+  "version": "1.0",
+  "description": "Gold-standard expected output derived directly from rcfa_dummy.csv. Used to evaluate inference quality.",
+  "cases": [
+    {
+      "case_id": 1,
+      "failure_description": "Pump bearing failure due to lack of lubrication",
+      "expected": {
+        "failure_category": "Maintenance",
+        "root_cause": "Monthly lubrication schedule was missed for 3 cycles",
+        "action_plan": "Implement a digital maintenance logging system with automated reminders"
+      }
+    },
+    {
+      "case_id": 2,
+      "failure_description": "Control system glitch causing emergency shutdown",
+      "expected": {
+        "failure_category": "Electrical",
+        "root_cause": "Outdated firmware on PLC unit caused register overflow",
+        "action_plan": "Update PLC firmware to v2.3 and schedule quarterly firmware audits"
+      }
+    },
+    {
+      "case_id": 3,
+      "failure_description": "Leakage detected at flange connection on Pipeline A",
+      "expected": {
+        "failure_category": "Mechanical",
+        "root_cause": "Gasket degraded after 5000 hours of continuous operation",
+        "action_plan": "Replace gasket with upgraded material and update maintenance cycle to 4000 hours"
+      }
+    },
+    {
+      "case_id": 4,
+      "failure_description": "Conveyor belt snapping during peak production load",
+      "expected": {
+        "failure_category": "Mechanical",
+        "root_cause": "Belt tensioner misalignment accumulated over 6 months",
+        "action_plan": "Re-align tensioner system and integrate weekly alignment checks into shift handover"
+      }
+    },
+    {
+      "case_id": 5,
+      "failure_description": "Server rack overheating during high traffic periods",
+      "expected": {
+        "failure_category": "IT Infrastructure",
+        "root_cause": "Air intake filter clogged with dust reducing airflow by 60%",
+        "action_plan": "Clean all filters monthly and install a high-temperature alarm threshold at 75°C"
+      }
+    },
+    {
+      "case_id": 6,
+      "failure_description": "Chemical tank overflow during replenishment procedure",
+      "expected": {
+        "failure_category": "Process",
+        "root_cause": "Float sensor stuck in DOWN position due to calcium scaling",
+        "action_plan": "Install redundant ultrasonic level sensor and add daily sensor validation to SOP"
+      }
+    },
+    {
+      "case_id": 7,
+      "failure_description": "High vibration detected on turbine B3",
+      "expected": {
+        "failure_category": "Mechanical",
+        "root_cause": "Loose mounting bolts on the main pedestal due to resonance",
+        "action_plan": "Retighten all bolts to specification and apply thread-locking compound; add vibration sensor"
+      }
+    },
+    {
+      "case_id": 8,
+      "failure_description": "Database connection timeout during weekend backup",
+      "expected": {
+        "failure_category": "IT Infrastructure",
+        "root_cause": "Network bottleneck on the storage subnet saturated at 400Mbps",
+        "action_plan": "Upgrade storage network interface card (NIC) to 10GbE and implement QoS policies"
+      }
+    },
+    {
+      "case_id": 9,
+      "failure_description": "Valve V-12 failed to open upon remote command",
+      "expected": {
+        "failure_category": "Electrical",
+        "root_cause": "Solenoid coil burned out due to sustained overvoltage",
+        "action_plan": "Replace solenoid, install surge protector, and check upstream voltage regulator"
+      }
+    },
+    {
+      "case_id": 10,
+      "failure_description": "Loss of hydraulic pressure in primary press ram",
+      "expected": {
+        "failure_category": "Mechanical",
+        "root_cause": "Hydraulic hose ruptured after metal fatigue near the elbow fitting",
+        "action_plan": "Replace hose with reinforced type and install protective sleeve; add pressure drop alarm"
+      }
+    }
+  ]
+}

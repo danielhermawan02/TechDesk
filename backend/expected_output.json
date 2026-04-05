@@ -1,0 +1,26 @@
+[
+  {
+    "failure_description": "Pump bearing failure due to lack of lubrication",
+    "expected_output": {
+      "failure_category": "Mechanical",
+      "root_cause": "Insufficient lubrication",
+      "action_plan": "Implement lubrication schedule"
+    }
+  },
+  {
+    "failure_description": "Server down due to network switch failure",
+    "expected_output": {
+      "failure_category": "IT Infrastructure",
+      "root_cause": "Network switch failure",
+      "action_plan": "Replace switch"
+    }
+  },
+  {
+    "failure_description": "Motor overheating because of cooling fan failure",
+    "expected_output": {
+      "failure_category": "Electrical",
+      "root_cause": "Cooling fan failure",
+      "action_plan": "Replace fan"
+    }
+  }
+]

@@ -1,0 +1,52 @@
+[
+    {
+        "instruction": "You are an industrial equipment failure analysis AI assistant.\nAnalyze the equipment failure description provided in the input and extract the core details into a valid JSON format.\nYou MUST strictly use only the following keys : 'failure_category', 'root_cause', and 'action_plan'.\nThe value for 'failure_category' must be selected exactly from this list: ['Maintenance', 'Electrical', 'Mechanical', 'IT Infrastructure', 'Process'].\nOutput ONLY the JSON object.\nDo not include any conversational text, greetings, explanations, or other kinds of formatting.\n",
+        "input": "Pump bearing failure due to lack of lubrication",
+        "output": "{\"failure_category\": \"Maintenance\", \"root_cause\": \"Monthly lubrication schedule was missed for 3 cycles\", \"action_plan\": \"Implement a digital maintenance logging system with automated reminders\"}"
+    },
+    {
+        "instruction": "You are an industrial equipment failure analysis AI assistant.\nAnalyze the equipment failure description provided in the input and extract the core details into a valid JSON format.\nYou MUST strictly use only the following keys : 'failure_category', 'root_cause', and 'action_plan'.\nThe value for 'failure_category' must be selected exactly from this list: ['Maintenance', 'Electrical', 'Mechanical', 'IT Infrastructure', 'Process'].\nOutput ONLY the JSON object.\nDo not include any conversational text, greetings, explanations, or other kinds of formatting.\n",
+        "input": "Control system glitch causing emergency shutdown",
+        "output": "{\"failure_category\": \"Electrical\", \"root_cause\": \"Outdated firmware on PLC unit caused register overflow\", \"action_plan\": \"Update PLC firmware to v2.\n3 and schedule quarterly firmware audits\"}"
+    },
+    {
+        "instruction": "You are an industrial equipment failure analysis AI assistant.\nAnalyze the equipment failure description provided in the input and extract the core details into a valid JSON format.\nYou MUST strictly use only the following keys : 'failure_category', 'root_cause', and 'action_plan'.\nThe value for 'failure_category' must be selected exactly from this list: ['Maintenance', 'Electrical', 'Mechanical', 'IT Infrastructure', 'Process'].\nOutput ONLY the JSON object.\nDo not include any conversational text, greetings, explanations, or other kinds of formatting.\n",
+        "input": "Leakage detected at flange connection on Pipeline A",
+        "output": "{\"failure_category\": \"Mechanical\", \"root_cause\": \"Gasket degraded after 5000 hours of continuous operation\", \"action_plan\": \"Replace gasket with upgraded material and update maintenance cycle to 4000 hours\"}"
+    },
+    {
+        "instruction": "You are an industrial equipment failure analysis AI assistant.\nAnalyze the equipment failure description provided in the input and extract the core details into a valid JSON format.\nYou MUST strictly use only the following keys : 'failure_category', 'root_cause', and 'action_plan'.\nThe value for 'failure_category' must be selected exactly from this list: ['Maintenance', 'Electrical', 'Mechanical', 'IT Infrastructure', 'Process'].\nOutput ONLY the JSON object.\nDo not include any conversational text, greetings, explanations, or other kinds of formatting.\n",
+        "input": "Conveyor belt snapping during peak production load",
+        "output": "{\"failure_category\": \"Mechanical\", \"root_cause\": \"Belt tensioner misalignment accumulated over 6 months\", \"action_plan\": \"Re-align tensioner system and integrate weekly alignment checks into shift handover\"}"
+    },
+    {
+        "instruction": "You are an industrial equipment failure analysis AI assistant.\nAnalyze the equipment failure description provided in the input and extract the core details into a valid JSON format.\nYou MUST strictly use only the following keys : 'failure_category', 'root_cause', and 'action_plan'.\nThe value for 'failure_category' must be selected exactly from this list: ['Maintenance', 'Electrical', 'Mechanical', 'IT Infrastructure', 'Process'].\nOutput ONLY the JSON object.\nDo not include any conversational text, greetings, explanations, or other kinds of formatting.\n",
+        "input": "Server rack overheating during high traffic periods",
+        "output": "{\"failure_category\": \"IT Infrastructure\", \"root_cause\": \"Air intake filter clogged with dust reducing airflow by 60%\", \"action_plan\": \"Clean all filters monthly and install a high-temperature alarm threshold at 75\\u00b0C\"}"
+    },
+    {
+        "instruction": "You are an industrial equipment failure analysis AI assistant.\nAnalyze the equipment failure description provided in the input and extract the core details into a valid JSON format.\nYou MUST strictly use only the following keys : 'failure_category', 'root_cause', and 'action_plan'.\nThe value for 'failure_category' must be selected exactly from this list: ['Maintenance', 'Electrical', 'Mechanical', 'IT Infrastructure', 'Process'].\nOutput ONLY the JSON object.\nDo not include any conversational text, greetings, explanations, or other kinds of formatting.\n",
+        "input": "Chemical tank overflow during replenishment procedure",
+        "output": "{\"failure_category\": \"Process\", \"root_cause\": \"Float sensor stuck in DOWN position due to calcium scaling\", \"action_plan\": \"Install redundant ultrasonic level sensor and add daily sensor validation to SOP\"}"
+    },
+    {
+        "instruction": "You are an industrial equipment failure analysis AI assistant.\nAnalyze the equipment failure description provided in the input and extract the core details into a valid JSON format.\nYou MUST strictly use only the following keys : 'failure_category', 'root_cause', and 'action_plan'.\nThe value for 'failure_category' must be selected exactly from this list: ['Maintenance', 'Electrical', 'Mechanical', 'IT Infrastructure', 'Process'].\nOutput ONLY the JSON object.\nDo not include any conversational text, greetings, explanations, or other kinds of formatting.\n",
+        "input": "High vibration detected on turbine B3",
+        "output": "{\"failure_category\": \"Mechanical\", \"root_cause\": \"Loose mounting bolts on the main pedestal due to resonance\", \"action_plan\": \"Retighten all bolts to specification and apply thread-locking compound; add vibration sensor\"}"
+    },
+    {
+        "instruction": "You are an industrial equipment failure analysis AI assistant.\nAnalyze the equipment failure description provided in the input and extract the core details into a valid JSON format.\nYou MUST strictly use only the following keys : 'failure_category', 'root_cause', and 'action_plan'.\nThe value for 'failure_category' must be selected exactly from this list: ['Maintenance', 'Electrical', 'Mechanical', 'IT Infrastructure', 'Process'].\nOutput ONLY the JSON object.\nDo not include any conversational text, greetings, explanations, or other kinds of formatting.\n",
+        "input": "Database connection timeout during weekend backup",
+        "output": "{\"failure_category\": \"IT Infrastructure\", \"root_cause\": \"Network bottleneck on the storage subnet saturated at 400Mbps\", \"action_plan\": \"Upgrade storage network interface card (NIC) to 10GbE and implement QoS policies\"}"
+    },
+    {
+        "instruction": "You are an industrial equipment failure analysis AI assistant.\nAnalyze the equipment failure description provided in the input and extract the core details into a valid JSON format.\nYou MUST strictly use only the following keys : 'failure_category', 'root_cause', and 'action_plan'.\nThe value for 'failure_category' must be selected exactly from this list: ['Maintenance', 'Electrical', 'Mechanical', 'IT Infrastructure', 'Process'].\nOutput ONLY the JSON object.\nDo not include any conversational text, greetings, explanations, or other kinds of formatting.\n",
+        "input": "Valve V-12 failed to open upon remote command",
+        "output": "{\"failure_category\": \"Electrical\", \"root_cause\": \"Solenoid coil burned out due to sustained overvoltage\", \"action_plan\": \"Replace solenoid, install surge protector, and check upstream voltage regulator\"}"
+    },
+    {
+        "instruction": "You are an industrial equipment failure analysis AI assistant.\nAnalyze the equipment failure description provided in the input and extract the core details into a valid JSON format.\nYou MUST strictly use only the following keys : 'failure_category', 'root_cause', and 'action_plan'.\nThe value for 'failure_category' must be selected exactly from this list: ['Maintenance', 'Electrical', 'Mechanical', 'IT Infrastructure', 'Process'].\nOutput ONLY the JSON object.\nDo not include any conversational text, greetings, explanations, or other kinds of formatting.\n",
+        "input": "Loss of hydraulic pressure in primary press ram",
+        "output": "{\"failure_category\": \"Mechanical\", \"root_cause\": \"Hydraulic hose ruptured after metal fatigue near the elbow fitting\", \"action_plan\": \"Replace hose with reinforced type and install protective sleeve; add pressure drop alarm\"}"
+    }
+]

@@ -1,0 +1,11 @@
+failure_description,failure_category,root_cause,action_plan
+"Pump bearing failure due to lack of lubrication","Maintenance","Monthly lubrication schedule was missed for 3 cycles","Implement a digital maintenance logging system with automated reminders"
+"Control system glitch causing emergency shutdown","Electrical","Outdated firmware on PLC unit caused register overflow","Update PLC firmware to v2.3 and schedule quarterly firmware audits"
+"Leakage detected at flange connection on Pipeline A","Mechanical","Gasket degraded after 5000 hours of continuous operation","Replace gasket with upgraded material and update maintenance cycle to 4000 hours"
+"Conveyor belt snapping during peak production load","Mechanical","Belt tensioner misalignment accumulated over 6 months","Re-align tensioner system and integrate weekly alignment checks into shift handover"
+"Server rack overheating during high traffic periods","IT Infrastructure","Air intake filter clogged with dust reducing airflow by 60%","Clean all filters monthly and install a high-temperature alarm threshold at 75°C"
+"Chemical tank overflow during replenishment procedure","Process","Float sensor stuck in DOWN position due to calcium scaling","Install redundant ultrasonic level sensor and add daily sensor validation to SOP"
+"High vibration detected on turbine B3","Mechanical","Loose mounting bolts on the main pedestal due to resonance","Retighten all bolts to specification and apply thread-locking compound; add vibration sensor"
+"Database connection timeout during weekend backup","IT Infrastructure","Network bottleneck on the storage subnet saturated at 400Mbps","Upgrade storage network interface card (NIC) to 10GbE and implement QoS policies"
+"Valve V-12 failed to open upon remote command","Electrical","Solenoid coil burned out due to sustained overvoltage","Replace solenoid, install surge protector, and check upstream voltage regulator"
+"Loss of hydraulic pressure in primary press ram","Mechanical","Hydraulic hose ruptured after metal fatigue near the elbow fitting","Replace hose with reinforced type and install protective sleeve; add pressure drop alarm"
