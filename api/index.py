@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, APIRouter
 from pydantic import BaseModel, Field, validator
 from typing import List, Optional, Literal
 import httpx
@@ -27,6 +27,9 @@ logger = logging.getLogger("TechDesk")
 logger.info(f"Logging initialized. Log file located at: {LOG_FILE}")
 
 app = FastAPI(title="TechDesk AI-Powered RCFA System")
+
+# Use a router to handle /api prefix for Vercel compatibility
+router = APIRouter(prefix="/api")
 
 # CORS middleware
 app.add_middleware(
@@ -143,11 +146,11 @@ async def call_ollama(prompt: str) -> tuple[dict, float, str]:
         logger.error(f"Inference error: {str(e)}")
         raise HTTPException(status_code=500, detail=f"AI inference error: {str(e)}")
 
-@app.get("/")
+@router.get("/")
 async def root():
     return {"status": "TechDesk API is running", "version": "1.0.0"}
 
-@app.get("/health/ollama")
+@router.get("/health/ollama")
 async def check_ollama_health():
     """Checks if the Ollama server is reachable."""
     try:
@@ -161,7 +164,7 @@ async def check_ollama_health():
     except Exception as e:
         return {"status": "disconnected", "reason": str(e)}
 
-@app.post("/analyze", response_model=RCFAOutput)
+@router.post("/analyze", response_model=RCFAOutput)
 async def analyze_failure(request: AnalysisRequest):
     prompt = f"Failure Description: {request.failure_description}"
     try:
@@ -192,11 +195,11 @@ async def analyze_failure(request: AnalysisRequest):
         ))
         raise e if isinstance(e, HTTPException) else HTTPException(status_code=500, detail=error_msg)
 
-@app.get("/history", response_model=List[HistoryEntry])
+@router.get("/history", response_model=List[HistoryEntry])
 async def get_history():
     return history
 
-@app.get("/logs")
+@router.get("/logs")
 async def get_logs():
     """Returns the last 100 lines of the system log from the external location."""
     if not os.path.exists(LOG_FILE):
@@ -209,7 +212,7 @@ async def get_logs():
     except Exception as e:
         return {"logs": f"Error reading logs: {str(e)}"}
 
-@app.get("/benchmark", response_model=BenchmarkingReport)
+@router.get("/benchmark", response_model=BenchmarkingReport)
 async def run_benchmark():
     if not os.path.exists(EXPECTED_OUTPUT_FILE):
         raise HTTPException(status_code=404, detail="Benchmarking data file not found")
@@ -265,6 +268,5 @@ async def run_benchmark():
         results=results
     )
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+# Include the router in the main FastAPI app
+app.include_router(router)
