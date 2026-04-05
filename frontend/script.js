@@ -1,5 +1,5 @@
-const API_BASE_URL = 'http://localhost:8080';
-const APP_VERSION = '1.0.5';
+const API_BASE_URL = '/api';
+const APP_VERSION = '1.0.6';
 
 console.log(`TechDesk Industrial v${APP_VERSION} Initialized: ${new Date().toLocaleTimeString()}`);
 

@@ -38,9 +38,11 @@ app.add_middleware(
 )
 
 # Configuration
-OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "techdesk-model"
-EXPECTED_OUTPUT_FILE = "expected_output.json"
+OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434/api/generate")
+MODEL_NAME = os.getenv("MODEL_NAME", "techdesk-model")
+# Get current directory to locate expected_output.json
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+EXPECTED_OUTPUT_FILE = os.path.join(CURRENT_DIR, "expected_output.json")
 
 # Models
 class RCFAOutput(BaseModel):
