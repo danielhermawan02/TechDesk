@@ -38,11 +38,14 @@ app.add_middleware(
 )
 
 # Configuration
-OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434/api/generate")
+OLLAMA_BASE_URL = os.getenv("OLLAMA_URL", "http://localhost:11434").rstrip("/")
 MODEL_NAME = os.getenv("MODEL_NAME", "techdesk-model")
 # Get current directory to locate expected_output.json
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 EXPECTED_OUTPUT_FILE = os.path.join(CURRENT_DIR, "expected_output.json")
+
+# Headers for ngrok (skips the browser warning if using ngrok tunnel)
+NGROK_HEADERS = {"ngrok-skip-browser-warning": "1"}
 
 # Models
 class RCFAOutput(BaseModel):
@@ -118,7 +121,8 @@ async def call_ollama(prompt: str) -> tuple[dict, float, str]:
     
     try:
         async with httpx.AsyncClient() as client:
-            response = await client.post(OLLAMA_URL, json=payload, timeout=30.0)
+            generate_url = f"{OLLAMA_BASE_URL}/api/generate"
+            response = await client.post(generate_url, json=payload, headers=NGROK_HEADERS, timeout=60.0)
             response.raise_for_status()
             result = response.json()
             ai_text = result.get("response", "").strip()
@@ -149,7 +153,8 @@ async def check_ollama_health():
     try:
         async with httpx.AsyncClient() as client:
             # We check the base URL or tags to see if it's alive
-            response = await client.get(OLLAMA_URL.replace("/api/generate", "/api/tags"), timeout=2.0)
+            tags_url = f"{OLLAMA_BASE_URL}/api/tags"
+            response = await client.get(tags_url, headers=NGROK_HEADERS, timeout=5.0)
             if response.status_code == 200:
                 return {"status": "connected"}
             return {"status": "disconnected", "reason": f"Ollama returned {response.status_code}"}
@@ -222,6 +227,7 @@ async def run_benchmark():
         prompt = f"Failure Description: {desc}"
         
         try:
+            # Re-using the same call_ollama logic (implicitly handles headers and base url)
             data, latency, raw_text = await call_ollama(prompt)
             ai_category = data.get("failure_category", "Unknown")
             is_match = ai_category == expected["failure_category"]
