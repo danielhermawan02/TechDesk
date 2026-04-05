@@ -40,6 +40,40 @@ async function updateOllamaStatus() {
 updateOllamaStatus();
 setInterval(updateOllamaStatus, 5000); // Check every 10 seconds
 
+// Mobile Menu Logic
+function toggleMobileMenu() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    const icon = document.getElementById('mobileMenuIcon');
+    
+    const isOpen = !sidebar.classList.contains('-translate-x-full');
+    
+    if (isOpen) {
+        sidebar.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    } else {
+        sidebar.classList.remove('-translate-x-full');
+        overlay.classList.remove('hidden');
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+    }
+}
+
+function closeMobileMenu() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    const icon = document.getElementById('mobileMenuIcon');
+    
+    sidebar.classList.add('-translate-x-full');
+    overlay.classList.add('hidden');
+    if (icon) {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    }
+}
+
 // Page Navigation with Industrial UI updates
 function showPage(pageId) {
     console.log(`Switching to page: ${pageId}`);
